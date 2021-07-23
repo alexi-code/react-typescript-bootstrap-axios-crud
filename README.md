@@ -16,3 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Runs the app in the development mode.\
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+
+## Credentials
+
+:hammer: Created by [Alex Antukhov](https://www.linkedin.com/in/antukhov/)
