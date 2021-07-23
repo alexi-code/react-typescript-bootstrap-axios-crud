@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+import AddOntologyComponent from "./components/AddOntologyComponent";
+import OntologyComponent from "./components/OntologyComponent";
+import OntologyListComponent from "./components/OntologyListComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          <nav className="navbar navbar-expand navbar-dark bg-dark">
+              <Link to={"/ontologies"} className="navbar-brand">
+                  React Ontology Client
+              </Link>
+              <div className="navbar-nav mr-auto">
+                  <li className="nav-item">
+                      <Link to={"/ontologies"} className="nav-link">
+                          Ontologies
+                      </Link>
+                  </li>
+                  <li className="nav-item">
+                      <Link to={"/create"} className="nav-link">
+                          Create new
+                      </Link>
+                  </li>
+              </div>
+          </nav>
+
+          <div className="container mt-3">
+              <Switch>
+                  <Route exact path={["/", "/ontologies"]} component={OntologyListComponent} />
+                  <Route exact path="/create" component={AddOntologyComponent} />
+                  <Route path="/ontologies/:id" component={OntologyComponent} />
+              </Switch>
+          </div>
+      </div>
   );
 }
 
